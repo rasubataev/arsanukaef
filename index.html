@@ -7,87 +7,6 @@
 <meta name="theme-color" content="#050505">
 <title>REELSMAKER — курс профессии Reelsmaker</title>
 <style>
-  @font-face{
-    font-family:'Golos Text';
-    font-weight:400;
-    font-style:normal;
-    font-display:swap;
-    src:url('assets/fonts/golos-text-cyr.woff2') format('woff2');
-    unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;
-  }
-  @font-face{
-    font-family:'Golos Text';
-    font-weight:500;
-    font-style:normal;
-    font-display:swap;
-    src:url('assets/fonts/golos-text-cyr.woff2') format('woff2');
-    unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;
-  }
-  @font-face{
-    font-family:'Golos Text';
-    font-weight:600;
-    font-style:normal;
-    font-display:swap;
-    src:url('assets/fonts/golos-text-cyr.woff2') format('woff2');
-    unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;
-  }
-  @font-face{
-    font-family:'Golos Text';
-    font-weight:700;
-    font-style:normal;
-    font-display:swap;
-    src:url('assets/fonts/golos-text-cyr.woff2') format('woff2');
-    unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;
-  }
-  @font-face{
-    font-family:'Golos Text';
-    font-weight:400 700;
-    font-style:normal;
-    font-display:swap;
-    src:url('assets/fonts/golos-text-lat.woff2') format('woff2');
-    unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2122;
-  }
-  @font-face{
-    font-family:'Unbounded';
-    font-weight:300;
-    font-style:normal;
-    font-display:swap;
-    src:url('assets/fonts/unbounded-cyr.woff2') format('woff2');
-    unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;
-  }
-  @font-face{
-    font-family:'Unbounded';
-    font-weight:500;
-    font-style:normal;
-    font-display:swap;
-    src:url('assets/fonts/unbounded-cyr.woff2') format('woff2');
-    unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;
-  }
-  @font-face{
-    font-family:'Unbounded';
-    font-weight:700;
-    font-style:normal;
-    font-display:swap;
-    src:url('assets/fonts/unbounded-cyr.woff2') format('woff2');
-    unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;
-  }
-  @font-face{
-    font-family:'Unbounded';
-    font-weight:800;
-    font-style:normal;
-    font-display:swap;
-    src:url('assets/fonts/unbounded-cyr.woff2') format('woff2');
-    unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;
-  }
-  @font-face{
-    font-family:'Unbounded';
-    font-weight:300 800;
-    font-style:normal;
-    font-display:swap;
-    src:url('assets/fonts/unbounded-lat.woff2') format('woff2');
-    unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2122;
-  }
-
   :root{
     --canvas:#050505;
     --canvas-2:#0a0d13;
@@ -106,8 +25,8 @@
     --r-md:18px;
     --r-sm:10px;
     --ease:cubic-bezier(.16,.8,.24,1);
-    --font-display:'Unbounded',-apple-system,BlinkMacSystemFont,sans-serif;
-    --font-body:'Golos Text',-apple-system,BlinkMacSystemFont,sans-serif;
+    --font-display:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+    --font-body:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
     --font-mono:ui-monospace,'SF Mono',Menlo,'Cascadia Code',monospace;
     color-scheme:dark;
   }
@@ -250,9 +169,8 @@
   .hero-cta{margin-top:2.6rem;display:flex;align-items:center;justify-content:center;gap:1.4rem;flex-wrap:wrap}
   .hero-cta-note{font-family:var(--font-mono);font-size:.78rem;color:var(--ink-faint)}
   .hero-author{margin-top:1.6rem;display:flex;align-items:center;justify-content:center;gap:.6rem;flex-wrap:wrap}
-  .hero-author-id{display:flex;align-items:center;gap:.65rem;padding:.35rem .95rem .35rem .35rem;border-radius:999px;background:var(--glass-fill);border:1px solid var(--glass-border);transition:border-color .4s var(--ease),background-color .4s var(--ease)}
+  .hero-author-id{display:flex;align-items:center;gap:.65rem;padding:.55rem .95rem;border-radius:999px;background:var(--glass-fill);border:1px solid var(--glass-border);transition:border-color .4s var(--ease),background-color .4s var(--ease)}
   .hero-author-id:hover{border-color:var(--electric-2);background:var(--glass-fill-strong)}
-  .hero-author-photo{width:34px;height:34px;border-radius:50%;object-fit:cover;object-position:top center;background:var(--canvas-2)}
   .hero-author-info{display:flex;flex-direction:column;line-height:1.25}
   .hero-author-name{font-size:.8rem;font-weight:600;color:var(--ink)}
   .hero-author-role{font-size:.68rem;color:var(--ink-faint)}
@@ -310,11 +228,8 @@
 
   /* ================= TEACHER ================= */
   .teacher-grid{display:grid;grid-template-columns:1fr;gap:2.5rem;align-items:end}
-  @media(min-width:900px){.teacher-grid{grid-template-columns:.85fr 1.15fr;gap:2rem}}
-  .teacher-photo-wrap{position:relative;display:flex;justify-content:center}
-  .teacher-photo-wrap .glow-blob{width:520px;height:520px;left:50%;top:38%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(61,107,255,.4),transparent 70%);animation:drift 20s ease-in-out infinite}
-  .teacher-photo{position:relative;z-index:2;max-height:clamp(340px,46vw,560px);width:auto;filter:drop-shadow(0 30px 50px rgba(0,0,0,.6))}
   .teacher-copy{position:relative;z-index:2}
+  .teacher-copy .glow-blob{width:520px;height:520px;left:20%;top:-10%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(61,107,255,.4),transparent 70%);animation:drift 20s ease-in-out infinite}
   .teacher-name{font-size:clamp(2rem,4.4vw,3.2rem);letter-spacing:-.02em}
   .teacher-role{margin-top:.9rem;color:var(--electric-2);font-family:var(--font-mono);font-size:.85rem;letter-spacing:.02em}
   .teacher-text{margin-top:1.6rem;max-width:36rem;color:var(--ink-dim);font-size:1.05rem;line-height:1.7}
@@ -499,7 +414,6 @@
         </div>
         <div class="hero-author" data-reveal>
           <a class="hero-author-id" href="#teacher">
-            <img class="hero-author-photo" src="assets/img/teacher-avatar.webp" alt="Мухаммад Арсанукаев">
             <span class="hero-author-info">
               <span class="hero-author-name">Мухаммад Арсанукаев</span>
               <span class="hero-author-role">Автор курса REELSMAKER</span>
@@ -582,11 +496,8 @@
   <!-- 5. TEACHER -->
   <section class="scene" id="teacher" data-section>
     <div class="container teacher-grid">
-      <div class="teacher-photo-wrap">
-        <div class="glow-blob" aria-hidden="true"></div>
-        <img class="teacher-photo" src="assets/img/teacher.webp" alt="Мухаммад Арсанукаев — автор курса REELSMAKER" data-reveal>
-      </div>
       <div class="teacher-copy">
+        <div class="glow-blob" aria-hidden="true"></div>
         <div class="eyebrow" data-reveal>АВТОР КУРСА</div>
         <h2 class="teacher-name" data-reveal>Мухаммад Арсанукаев</h2>
         <p class="teacher-role" data-reveal>Предприниматель · Основатель бренда Envibe · Практикующий Reelsmaker</p>
@@ -632,9 +543,9 @@
     <div class="container">
       <div class="eyebrow" data-reveal>ФОРМАТ ОБУЧЕНИЯ</div>
       <div class="format-grid" style="margin-top:2.2rem" data-reveal>
-        <div class="ftile"><span class="ftile-num">25</span><span class="ftile-label">дней обучения, онлайн</span></div>
+        <div class="ftile"><span class="ftile-num">25</span><span class="ftile-label">дней обучения</span></div>
         <div class="ftile"><span class="ftile-num">≈20</span><span class="ftile-label">часов практического материала</span></div>
-        <div class="ftile"><span class="ftile-num">10</span><span class="ftile-label">видеоуроков в записи</span></div>
+        <div class="ftile"><span class="ftile-num">15</span><span class="ftile-label">видеоуроков в записи</span></div>
         <div class="ftile"><span class="ftile-label" style="margin-top:0">Домашние задания с проверкой</span></div>
         <div class="ftile"><span class="ftile-label" style="margin-top:0">Онлайн-созвоны с куратором</span></div>
         <div class="ftile"><span class="ftile-label" style="margin-top:0">Чат поддержки на весь курс</span></div>
@@ -657,7 +568,7 @@
           <h3>Онлайн</h3>
           <div class="price-value"><span class="num">40&nbsp;000</span><span class="cur">₽</span></div>
           <ul class="price-list">
-            <li>10 видеоуроков</li>
+            <li>15 видеоуроков</li>
             <li>3 онлайн-созвона</li>
             <li>Проверка домашних заданий</li>
             <li>Чат поддержки</li>
