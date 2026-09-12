@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>REELSMAKER — панель управления</title>
+<style>
+  :root{
+    --canvas:#050505;
+    --canvas-2:#0a0d13;
+    --ink:#f3f5fa;
+    --ink-dim:#8d93a6;
+    --ink-faint:#565c6e;
+    --electric:#3d6bff;
+    --electric-2:#7aa2ff;
+    --glass-fill:rgba(255,255,255,.045);
+    --glass-border:rgba(255,255,255,.09);
+    --glass-border-strong:rgba(255,255,255,.18);
+    --danger:#e0685f;
+    --ok:#4fbf7a;
+    --r-md:14px;
+    --r-sm:8px;
+    --font:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+    --font-mono:ui-monospace,'SF Mono',Menlo,'Cascadia Code',monospace;
+    color-scheme:dark;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--canvas);color:var(--ink);font-family:var(--font);line-height:1.5}
+  a{color:var(--electric-2)}
+  .wrap{max-width:880px;margin-inline:auto;padding:2.5rem 1.25rem 6rem}
+  header{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:2rem;flex-wrap:wrap}
+  h1{font-size:1.3rem;font-weight:700;margin:0}
+  .tag{font-family:var(--font-mono);font-size:.72rem;color:var(--ink-faint);letter-spacing:.08em;text-transform:uppercase}
+  .btn{
+    display:inline-flex;align-items:center;gap:.4rem;padding:.7rem 1.3rem;border-radius:999px;
+    font-size:.88rem;font-weight:600;border:1px solid var(--glass-border-strong);background:var(--glass-fill);
+    color:var(--ink);cursor:pointer;transition:border-color .2s,background-color .2s;
+  }
+  .btn:hover{border-color:var(--electric-2);background:rgba(255,255,255,.08)}
+  .btn-solid{background:linear-gradient(180deg,var(--electric-2),var(--electric));border-color:transparent;color:#fff}
+  .btn-danger{border-color:rgba(224,104,95,.5);color:var(--danger)}
+  .btn:disabled{opacity:.5;cursor:not-allowed}
+
+  #loginScreen{max-width:360px;margin:14vh auto 0;padding:0 1.25rem}
+  .card{background:var(--canvas-2);border:1px solid var(--glass-border-strong);border-radius:var(--r-md);padding:1.8rem}
+  .field{display:flex;flex-direction:column;gap:.4rem;margin-top:1rem}
+  .field:first-child{margin-top:0}
+  .field-label{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.05em;color:var(--ink-faint);word-break:break-all}
+  input[type="password"],input[type="text"],textarea{
+    padding:.7rem .85rem;border-radius:var(--r-sm);border:1px solid var(--glass-border-strong);
+    background:rgba(255,255,255,.03);color:var(--ink);font:inherit;font-size:.92rem;width:100%;resize:vertical;
+  }
+  input:focus,textarea:focus{outline:none;border-color:var(--electric-2);background:rgba(255,255,255,.05)}
+  .error{color:var(--danger);font-size:.85rem;margin-top:.8rem;display:none}
+  .error.show{display:block}
+
+  .field-section{border:1px solid var(--glass-border);border-radius:var(--r-md);padding:1.2rem 1.2rem .4rem;margin-bottom:1.2rem}
+  .field-section > legend{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--electric-2);padding:0 .4rem}
+  .field-group{border:1px dashed var(--glass-border);border-radius:var(--r-sm);padding:.9rem;margin:.8rem 0}
+  .field-array-title{font-family:var(--font-mono);font-size:.68rem;color:var(--ink-faint);margin-bottom:.3rem}
+
+  #status{position:fixed;left:0;right:0;bottom:0;padding:1rem 1.25rem;text-align:center;font-size:.88rem;
+    background:rgba(5,5,5,.9);border-top:1px solid var(--glass-border);backdrop-filter:blur(10px);
+    transform:translateY(100%);transition:transform .3s ease;z-index:10}
+  #status.show{transform:translateY(0)}
+  #status.ok{color:var(--ok)}
+  #status.err{color:var(--danger)}
+
+  .hint{color:var(--ink-faint);font-size:.85rem;margin-top:.5rem}
+  [hidden]{display:none!important}
+</style>
+</head>
+<body>
+
+<div id="loginScreen">
+  <div class="card">
+    <div class="tag">REELSMAKER · ADMIN</div>
+    <h1 style="margin-top:.6rem">Вход в панель</h1>
+    <form id="loginForm">
+      <div class="field">
+        <span class="field-label">Пароль</span>
+        <input type="password" id="loginPassword" autocomplete="current-password" required>
+      </div>
+      <button class="btn btn-solid" type="submit" style="margin-top:1.2rem;width:100%;justify-content:center">Войти</button>
+      <div class="error" id="loginError">Неверный пароль</div>
+    </form>
+    <p class="hint" id="workerHint"></p>
+  </div>
+</div>
+
+<div class="wrap" id="adminScreen" hidden>
+  <header>
+    <div>
+      <div class="tag">REELSMAKER · ADMIN</div>
+      <h1 style="margin-top:.4rem">Редактирование контента сайта</h1>
+    </div>
+    <div style="display:flex;gap:.6rem;flex-wrap:wrap">
+      <button class="btn" id="reloadBtn" type="button">Обновить</button>
+      <button class="btn btn-danger" id="logoutBtn" type="button">Выйти</button>
+    </div>
+  </header>
+  <p class="hint">Меняйте текст ниже и нажмите «Сохранить». Изменения появятся на сайте сразу после сохранения (обновите страницу сайта).</p>
+  <button class="btn btn-solid" id="saveBtnTop" type="button" style="margin:1.2rem 0">Сохранить</button>
+  <div id="formRoot"></div>
+  <button class="btn btn-solid" id="saveBtnBottom" type="button">Сохранить</button>
+</div>
+
+<div id="status"></div>
+
+<script>
+(function(){
+  "use strict";
+
+  // Same default copy as index.html — used as a starting point until the
+  // worker has a saved version, and as the fallback if the worker is
+  // unreachable. Set WORKER_URL once the Cloudflare Worker is deployed.
+  var WORKER_URL = '';
+
+  var DEFAULT_CONTENT = {
+    brand: { bold: "REELS", rest: "MAKER" },
+    nav: { pricingLabel: "Тарифы" },
+    social: { telegram: "https://t.me/arsanukaef", instagram: "https://www.instagram.com/arsanukaef/" },
+    hero: {
+      eyebrow: "КУРС · ПРОФЕССИЯ REELSMAKER",
+      titleLine1: "REELS,",
+      titleLine2: "КОТОРЫЕ",
+      titleAccent: "РАБОТАЮТ.",
+      sub: "Практический курс по профессии Reelsmaker — от анализа бизнеса и целевой аудитории до сценария, съёмки, монтажа и первых клиентов.",
+      ctaLabel: "Смотреть программу",
+      ctaNote: "10 модулей · 25 дней · от 40 000 ₽",
+      authorName: "Мухаммад Арсанукаев",
+      authorRole: "Автор курса REELSMAKER"
+    },
+    statement: {
+      textBefore: "Reels — это не контент. Это ",
+      textEm: "отдел продаж",
+      textAfter: ", который работает 24/7.",
+      foot: "Пока вы спите — он приносит заявки."
+    },
+    numbers: {
+      eyebrow: "РЕЗУЛЬТАТ УЧЕНИКОВ",
+      heading: "Цифры по ученикам курса REELSMAKER — не обещания, а статистика.",
+      stats: [
+        { target: 35, unit: "+", label: "учеников уже прошли курс" },
+        { target: 100, unit: "%", label: "завершили обучение до конца" },
+        { target: 100000, prefix: "≈", unit: "₽", label: "средний результат за первый месяц" },
+        { target: 300000, unit: "₽/мес", label: "лучший результат — через 3 месяца после курса" }
+      ],
+      foot: "Кейсы, скрины заявок и доходов учеников — показываем на самом курсе."
+    },
+    process: {
+      eyebrow: "ПУТЬ REELSMAKER’А · 25 ДНЕЙ",
+      leadBefore: "От анализа бизнеса до ",
+      leadBold: "первых денег",
+      leadAfter: " — путь, который обычно занимает месяцы, здесь укладывается в 25 дней.",
+      steps: ["Анализ бизнеса","Поиск целевой аудитории","Контент-план","Сильные хуки","Сценарии","Съёмка","Монтаж","Алгоритмы Instagram","Поиск клиентов","Упаковка услуг и доход"]
+    },
+    teacher: {
+      eyebrow: "АВТОР КУРСА",
+      name: "Мухаммад Арсанукаев",
+      role: "Предприниматель · Основатель бренда Envibe · Практикующий Reelsmaker",
+      text: "Строит собственный бренд Envibe и каждый день снимает Reels, которые приносят бизнесу реальные заявки — не просто просмотры. В курсе делится тем же подходом, который использует в своей работе."
+    },
+    episodes: {
+      eyebrow: "ПРОГРАММА · 10 МОДУЛЕЙ",
+      heading: "Курс устроен как сезон сериала — 10 серий, после которых вы работаете иначе.",
+      items: [
+        { title: "Введение в профессию", desc: "Кто такой Reelsmaker, как устроен рынок и почему бизнесу нужны сильные Reels." },
+        { title: "Анализ клиента", desc: "Разбор ниши, продукта и позиционирования ещё до первой съёмки." },
+        { title: "Контент-план", desc: "Система тем и рубрик, из-за которой контент никогда не заканчивается." },
+        { title: "Хуки", desc: "Первые секунды, которые решают — досмотрят ролик или пролистнут." },
+        { title: "Форматы Reels", desc: "Какие форматы реально дают охваты, а какие только выглядят красиво." },
+        { title: "Конструкция Reels и сценарии", desc: "Драматургия ролика — от хука до чёткого призыва к действию." },
+        { title: "Съёмка", desc: "Свет, кадр и техника — без дорогого оборудования." },
+        { title: "Монтаж", desc: "Сборка, темп и звук — то, что удерживает зрителя до конца." },
+        { title: "Алгоритмы Instagram", desc: "Как платформа распределяет охваты и как этим управлять." },
+        { title: "Секретный модуль", lock: "🔒 Раскрывается во время обучения" }
+      ]
+    },
+    format: {
+      eyebrow: "ФОРМАТ ОБУЧЕНИЯ",
+      tiles: [
+        { num: "25", label: "дней обучения" },
+        { num: "≈20", label: "часов практического материала" },
+        { num: "15", label: "видеоуроков в записи" },
+        { label: "Домашние задания с проверкой" },
+        { label: "Онлайн-созвоны с куратором" },
+        { label: "Чат поддержки на весь курс" },
+        { label: "Обратная связь по прогрессу" },
+        { label: "Именной сертификат по завершении" }
+      ]
+    },
+    pricing: {
+      eyebrow: "ТАРИФЫ",
+      heading: "Выберите формат — самостоятельный или личное наставничество.",
+      cards: [
+        {
+          kicker: "Тариф", title: "Онлайн", price: "40000",
+          items: ["15 видеоуроков","3 онлайн-созвона","Проверка домашних заданий","Чат поддержки","Все материалы курса","Именной сертификат"],
+          installment: "рассрочка: от 13 333 ₽ × 3, без переплат",
+          cta: "Выбрать Онлайн"
+        },
+        {
+          kicker: "Тариф", title: "Личное наставничество", price: "70000",
+          items: ["Индивидуальное обучение","10 офлайн-встреч","Разбор домашних заданий","Помощь с первыми клиентами","Поддержка между встречами","Именной сертификат"],
+          installment: "рассрочка: от 23 333 ₽ × 3, без переплат",
+          cta: "Выбрать наставничество"
+        }
+      ],
+      note: "Доступна беспроцентная рассрочка на 3 платежа по обоим тарифам."
+    },
+    certificate: {
+      eyebrow: "ПОСЛЕ КУРСА",
+      label: "Именной сертификат",
+      courseIntro: "завершил(а) курс ",
+      courseName: "REELSMAKER",
+      signName: "М. Арсанукаев",
+      signRole: "автор курса",
+      copy: "Сертификат подтверждает: вы прошли путь от анализа бизнеса до первых клиентов — и умеете применять это на практике."
+    },
+    final: {
+      titleBefore: "Хватит смотреть чужие Reels. Пора снимать свои — те, что ",
+      titleAccent: "работают",
+      titleAfter: ".",
+      note: "Курс REELSMAKER · от 40 000 ₽ · рассрочка на 3 платежа",
+      cta: "Выбрать тариф"
+    },
+    footer: {
+      brand: "REELSMAKER · курс Мухаммада Арсанукаева",
+      privacyLabel: "Политика конфиденциальности",
+      cookieLabel: "Cookie-файлы",
+      meta: "© 2026 · Envibe"
+    }
+  };
+
+  var TOKEN_KEY = 'reelsmakerAdminToken';
+  var TOKEN_EXP_KEY = 'reelsmakerAdminTokenExp';
+
+  var loginScreen = document.getElementById('loginScreen');
+  var adminScreen = document.getElementById('adminScreen');
+  var loginForm = document.getElementById('loginForm');
+  var loginPassword = document.getElementById('loginPassword');
+  var loginError = document.getElementById('loginError');
+  var workerHint = document.getElementById('workerHint');
+  var formRoot = document.getElementById('formRoot');
+  var statusEl = document.getElementById('status');
+
+  if(!WORKER_URL){
+    workerHint.textContent = 'Воркер ещё не подключён — панель работает в демо-режиме и не сохраняет изменения.';
+  }
+
+  function showStatus(text, ok){
+    statusEl.textContent = text;
+    statusEl.className = ok ? 'ok show' : 'err show';
+    setTimeout(function(){ statusEl.classList.remove('show'); }, 3500);
+  }
+
+  function getToken(){
+    var t = localStorage.getItem(TOKEN_KEY);
+    var exp = Number(localStorage.getItem(TOKEN_EXP_KEY) || 0);
+    if(!t || Date.now() > exp) return null;
+    return t;
+  }
+  function setToken(token, ttlSeconds){
+    localStorage.setItem(TOKEN_KEY, token);
+    localStorage.setItem(TOKEN_EXP_KEY, String(Date.now() + ttlSeconds*1000));
+  }
+  function clearToken(){
+    localStorage.removeItem(TOKEN_KEY);
+    localStorage.removeItem(TOKEN_EXP_KEY);
+  }
+
+  /* ---------- generic form builder ---------- */
+  function humanizePath(path){ return path.split('.').join(' › '); }
+
+  function makeInput(path, val){
+    var wrap = document.createElement('label');
+    wrap.className = 'field';
+    var span = document.createElement('span');
+    span.className = 'field-label';
+    span.textContent = humanizePath(path);
+    wrap.appendChild(span);
+    var input;
+    if(typeof val === 'string' && (val.length > 60 || val.indexOf('\n') !== -1)){
+      input = document.createElement('textarea');
+      input.rows = 3;
+    } else {
+      input = document.createElement('input');
+      input.type = 'text';
+    }
+    input.value = val;
+    input.dataset.path = path;
+    input.dataset.type = typeof val;
+    wrap.appendChild(input);
+    return wrap;
+  }
+
+  function renderForm(data, path, container){
+    Object.keys(data).forEach(function(key){
+      var val = data[key];
+      var fullPath = path ? path + '.' + key : key;
+      if(Array.isArray(val)){
+        var arrWrap = document.createElement('div');
+        arrWrap.className = 'field-array';
+        var h = document.createElement('div');
+        h.className = 'field-array-title';
+        h.textContent = humanizePath(fullPath) + ' (' + val.length + ')';
+        arrWrap.appendChild(h);
+        val.forEach(function(item, i){
+          var itemPath = fullPath + '.' + i;
+          if(item !== null && typeof item === 'object'){
+            var box = document.createElement('div');
+            box.className = 'field-group';
+            renderForm(item, itemPath, box);
+            arrWrap.appendChild(box);
+          } else {
+            arrWrap.appendChild(makeInput(itemPath, item));
+          }
+        });
+        container.appendChild(arrWrap);
+      } else if(val !== null && typeof val === 'object'){
+        var section = document.createElement('fieldset');
+        section.className = 'field-section';
+        var legend = document.createElement('legend');
+        legend.textContent = key;
+        section.appendChild(legend);
+        renderForm(val, fullPath, section);
+        container.appendChild(section);
+      } else {
+        container.appendChild(makeInput(fullPath, val));
+      }
+    });
+  }
+
+  function setPath(obj, path, value){
+    var parts = path.split('.');
+    var cur = obj;
+    for(var i = 0; i < parts.length - 1; i++){
+      var p = parts[i];
+      if(cur[p] === undefined){
+        cur[p] = /^\d+$/.test(parts[i+1]) ? [] : {};
+      }
+      cur = cur[p];
+    }
+    cur[parts[parts.length - 1]] = value;
+  }
+
+  function collectForm(){
+    var result = {};
+    formRoot.querySelectorAll('[data-path]').forEach(function(el){
+      var v = el.value;
+      if(el.dataset.type === 'number') v = Number(v);
+      setPath(result, el.dataset.path, v);
+    });
+    return result;
+  }
+
+  /* ---------- data loading ---------- */
+  function loadContent(){
+    if(!WORKER_URL){
+      renderForm(DEFAULT_CONTENT, '', formRoot);
+      return;
+    }
+    fetch(WORKER_URL + '/content').then(function(r){ return r.ok ? r.json() : null; }).then(function(data){
+      formRoot.innerHTML = '';
+      renderForm(data || DEFAULT_CONTENT, '', formRoot);
+    }).catch(function(){
+      formRoot.innerHTML = '';
+      renderForm(DEFAULT_CONTENT, '', formRoot);
+      showStatus('Не удалось связаться с воркером — показан контент по умолчанию.', false);
+    });
+  }
+
+  function save(){
+    var data = collectForm();
+    if(!WORKER_URL){
+      showStatus('Воркер не подключён — сохранение недоступно в демо-режиме.', false);
+      return;
+    }
+    var token = getToken();
+    if(!token){ enterLogin(); return; }
+    fetch(WORKER_URL + '/content', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+      body: JSON.stringify(data)
+    }).then(function(r){
+      if(r.status === 401){ clearToken(); enterLogin(); throw new Error('unauthorized'); }
+      if(!r.ok) throw new Error('save failed');
+      showStatus('Сохранено', true);
+    }).catch(function(err){
+      if(err.message !== 'unauthorized') showStatus('Ошибка сохранения: ' + err.message, false);
+    });
+  }
+
+  /* ---------- auth ---------- */
+  function enterAdmin(){
+    loginScreen.hidden = true;
+    adminScreen.hidden = false;
+    loadContent();
+  }
+  function enterLogin(){
+    adminScreen.hidden = true;
+    loginScreen.hidden = false;
+    loginPassword.value = '';
+    loginPassword.focus();
+  }
+
+  loginForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    loginError.classList.remove('show');
+    var password = loginPassword.value;
+    if(!WORKER_URL){
+      // demo mode: no backend configured yet, let the owner preview the panel
+      setToken('demo', 3600);
+      enterAdmin();
+      return;
+    }
+    fetch(WORKER_URL + '/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: password })
+    }).then(function(r){
+      if(!r.ok) throw new Error('bad credentials');
+      return r.json();
+    }).then(function(data){
+      setToken(data.token, data.expiresIn || 43200);
+      enterAdmin();
+    }).catch(function(){
+      loginError.classList.add('show');
+    });
+  });
+
+  document.getElementById('logoutBtn').addEventListener('click', function(){
+    clearToken();
+    enterLogin();
+  });
+  document.getElementById('reloadBtn').addEventListener('click', loadContent);
+  document.getElementById('saveBtnTop').addEventListener('click', save);
+  document.getElementById('saveBtnBottom').addEventListener('click', save);
+
+  if(getToken()){ enterAdmin(); } else { enterLogin(); }
+})();
+</script>
+</body>
+</html>
