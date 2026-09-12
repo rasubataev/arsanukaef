@@ -854,16 +854,20 @@
     }).catch(function(){ /* worker unreachable — keep default copy */ });
   }
 
-  /* hidden admin entrance: click the header logo 5x within 2s */
+  /* hidden admin entrance: click the header logo 5x within 2s.
+     Always prevent the default #top jump/scroll here — on mobile the
+     header scrolls with the page (see the header.chrome media query
+     above), so letting it scroll on every tap moves the logo out from
+     under the finger and makes the 5-tap gesture nearly impossible. */
   var brandLogo = document.getElementById('brandLogo');
   if(brandLogo){
     var clickTimes = [];
     brandLogo.addEventListener('click', function(ev){
+      ev.preventDefault();
       var now = Date.now();
       clickTimes.push(now);
       clickTimes = clickTimes.filter(function(t){ return now - t < 2000; });
       if(clickTimes.length >= 5){
-        ev.preventDefault();
         clickTimes = [];
         window.location.href = 'panel-r7k2q9.html';
       }
@@ -1007,8 +1011,9 @@
     leadForm.reset();
   });
 
-  /* smooth anchor scroll */
+  /* smooth anchor scroll (skip the header logo — it has its own click handler for the hidden gesture) */
   document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    if(a.id === 'brandLogo') return;
     a.addEventListener('click', function(ev){
       var id = a.getAttribute('href').slice(1);
       var target = document.getElementById(id);
