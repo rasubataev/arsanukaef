@@ -383,13 +383,13 @@
 </div>
 
 <header class="chrome" id="chrome">
-  <a class="brand" href="#top">
+  <a class="brand" href="#top" id="brandLogo">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 8V4a1 1 0 0 1 1-1h4M21 8V4a1 1 0 0 0-1-1h-4M3 16v4a1 1 0 0 0 1 1h4M21 16v4a1 1 0 0 1-1 1h-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-    <b>REELS</b>MAKER
+    <b data-key="brand.bold">REELS</b><span data-key="brand.rest">MAKER</span>
   </a>
   <div class="chrome-right">
     <span class="chrome-time" id="chromeTime">00:00</span>
-    <a class="btn btn-outline btn-pill-sm" href="#pricing">Тарифы</a>
+    <a class="btn btn-outline btn-pill-sm" href="#pricing" data-key="nav.pricingLabel">Тарифы</a>
   </div>
 </header>
 
@@ -401,29 +401,29 @@
     <div class="glow-blob b2" aria-hidden="true"></div>
     <div class="container hero-grid">
       <div class="hero-copy">
-        <div class="eyebrow hero-eyebrow" data-reveal>КУРС · ПРОФЕССИЯ REELSMAKER</div>
+        <div class="eyebrow hero-eyebrow" data-reveal data-key="hero.eyebrow">КУРС · ПРОФЕССИЯ REELSMAKER</div>
         <h1 class="hero-title" data-reveal>
-          <span>REELS,</span>
-          <span>КОТОРЫЕ</span>
-          <span class="accent">РАБОТАЮТ.</span>
+          <span data-key="hero.titleLine1">REELS,</span>
+          <span data-key="hero.titleLine2">КОТОРЫЕ</span>
+          <span class="accent" data-key="hero.titleAccent">РАБОТАЮТ.</span>
         </h1>
-        <p class="hero-sub" data-reveal>Практический курс по профессии Reelsmaker — от анализа бизнеса и целевой аудитории до сценария, съёмки, монтажа и первых клиентов.</p>
+        <p class="hero-sub" data-reveal data-key="hero.sub">Практический курс по профессии Reelsmaker — от анализа бизнеса и целевой аудитории до сценария, съёмки, монтажа и первых клиентов.</p>
         <div class="hero-cta" data-reveal>
-          <a class="btn btn-solid" href="#episodes">Смотреть программу</a>
-          <span class="hero-cta-note">10 модулей · 25 дней · от 40&nbsp;000 ₽</span>
+          <a class="btn btn-solid" href="#episodes" data-key="hero.ctaLabel">Смотреть программу</a>
+          <span class="hero-cta-note" data-key="hero.ctaNote">10 модулей · 25 дней · от 40&nbsp;000 ₽</span>
         </div>
         <div class="hero-author" data-reveal>
           <a class="hero-author-id" href="#teacher">
             <span class="hero-author-info">
-              <span class="hero-author-name">Мухаммад Арсанукаев</span>
-              <span class="hero-author-role">Автор курса REELSMAKER</span>
+              <span class="hero-author-name" data-key="hero.authorName">Мухаммад Арсанукаев</span>
+              <span class="hero-author-role" data-key="hero.authorRole">Автор курса REELSMAKER</span>
             </span>
           </a>
-          <a class="icon-btn" href="https://t.me/arsanukaef" target="_blank" rel="noopener" aria-label="Написать в Telegram">
+          <a class="icon-btn" href="https://t.me/arsanukaef" target="_blank" rel="noopener" aria-label="Написать в Telegram" data-social="telegram">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 12 21 3l-3.5 18-6-4.5L9 19l-1-6.5L2 12Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M21 3 8 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
             Telegram
           </a>
-          <a class="icon-btn" href="https://www.instagram.com/arsanukaef/" target="_blank" rel="noopener" aria-label="Instagram">
+          <a class="icon-btn" href="https://www.instagram.com/arsanukaef/" target="_blank" rel="noopener" aria-label="Instagram" data-social="instagram">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="17" cy="7" r="1" fill="currentColor"/></svg>
             Instagram
           </a>
@@ -437,8 +437,8 @@
   <section class="scene statement" id="s2" data-section>
     <div class="glow-blob" aria-hidden="true"></div>
     <div class="container">
-      <p class="statement-text" data-reveal>Reels — это не контент. Это <em>отдел продаж</em>, который работает 24/7.</p>
-      <p class="statement-foot" data-reveal>Пока вы спите — он приносит заявки.</p>
+      <p class="statement-text" data-reveal><span data-key="statement.textBefore">Reels — это не контент. Это </span><em data-key="statement.textEm">отдел продаж</em><span data-key="statement.textAfter">, который работает 24/7.</span></p>
+      <p class="statement-foot" data-reveal data-key="statement.foot">Пока вы спите — он приносит заявки.</p>
     </div>
   </section>
 
@@ -446,28 +446,28 @@
   <section class="scene" id="s3" data-section>
     <div class="container">
       <div class="numbers-head">
-        <div class="eyebrow" data-reveal>РЕЗУЛЬТАТ УЧЕНИКОВ</div>
-        <h2 data-reveal>Цифры по ученикам курса REELSMAKER — не обещания, а статистика.</h2>
+        <div class="eyebrow" data-reveal data-key="numbers.eyebrow">РЕЗУЛЬТАТ УЧЕНИКОВ</div>
+        <h2 data-reveal data-key="numbers.heading">Цифры по ученикам курса REELSMAKER — не обещания, а статистика.</h2>
       </div>
       <div class="numbers-grid">
         <div class="stat" data-reveal>
-          <div class="stat-num"><span class="js-count" data-target="35">0</span><span class="u">+</span></div>
-          <div class="stat-label">учеников уже прошли курс</div>
+          <div class="stat-num"><span class="js-count" data-target="35" data-key="numbers.stats.0.target" data-key-attr="data-target">0</span><span class="u" data-key="numbers.stats.0.unit">+</span></div>
+          <div class="stat-label" data-key="numbers.stats.0.label">учеников уже прошли курс</div>
         </div>
         <div class="stat" data-reveal>
-          <div class="stat-num"><span class="js-count" data-target="100">0</span><span class="u">%</span></div>
-          <div class="stat-label">завершили обучение до конца</div>
+          <div class="stat-num"><span class="js-count" data-target="100" data-key="numbers.stats.1.target" data-key-attr="data-target">0</span><span class="u" data-key="numbers.stats.1.unit">%</span></div>
+          <div class="stat-label" data-key="numbers.stats.1.label">завершили обучение до конца</div>
         </div>
         <div class="stat" data-reveal>
-          <div class="stat-num"><span class="u" style="margin-right:.15em;margin-left:0">≈</span><span class="js-count" data-target="100000">0</span><span class="u">₽</span></div>
-          <div class="stat-label">средний результат за первый месяц</div>
+          <div class="stat-num"><span class="u" style="margin-right:.15em;margin-left:0" data-key="numbers.stats.2.prefix">≈</span><span class="js-count" data-target="100000" data-key="numbers.stats.2.target" data-key-attr="data-target">0</span><span class="u" data-key="numbers.stats.2.unit">₽</span></div>
+          <div class="stat-label" data-key="numbers.stats.2.label">средний результат за первый месяц</div>
         </div>
         <div class="stat" data-reveal>
-          <div class="stat-num"><span class="js-count" data-target="300000">0</span><span class="u">₽/мес</span></div>
-          <div class="stat-label">лучший результат — через 3 месяца после курса</div>
+          <div class="stat-num"><span class="js-count" data-target="300000" data-key="numbers.stats.3.target" data-key-attr="data-target">0</span><span class="u" data-key="numbers.stats.3.unit">₽/мес</span></div>
+          <div class="stat-label" data-key="numbers.stats.3.label">лучший результат — через 3 месяца после курса</div>
         </div>
       </div>
-      <p class="numbers-foot" data-reveal>Кейсы, скрины заявок и доходов учеников — показываем на самом курсе.</p>
+      <p class="numbers-foot" data-reveal data-key="numbers.foot">Кейсы, скрины заявок и доходов учеников — показываем на самом курсе.</p>
     </div>
   </section>
 
@@ -475,20 +475,20 @@
   <section class="scene" id="s4" data-section>
     <div class="container process-grid">
       <div class="process-lead">
-        <div class="eyebrow" data-reveal>ПУТЬ REELSMAKER’А · 25 ДНЕЙ</div>
-        <p data-reveal style="margin-top:1.1rem">От анализа бизнеса до <b>первых денег</b> — путь, который обычно занимает месяцы, здесь укладывается в 25 дней.</p>
+        <div class="eyebrow" data-reveal data-key="process.eyebrow">ПУТЬ REELSMAKER’А · 25 ДНЕЙ</div>
+        <p data-reveal style="margin-top:1.1rem"><span data-key="process.leadBefore">От анализа бизнеса до </span><b data-key="process.leadBold">первых денег</b><span data-key="process.leadAfter"> — путь, который обычно занимает месяцы, здесь укладывается в 25 дней.</span></p>
       </div>
       <ol class="path-rail" data-reveal>
-        <li><span class="dot"></span><span class="idx">01</span><span class="label">Анализ бизнеса</span></li>
-        <li><span class="dot"></span><span class="idx">02</span><span class="label">Поиск целевой аудитории</span></li>
-        <li><span class="dot"></span><span class="idx">03</span><span class="label">Контент-план</span></li>
-        <li><span class="dot"></span><span class="idx">04</span><span class="label">Сильные хуки</span></li>
-        <li><span class="dot"></span><span class="idx">05</span><span class="label">Сценарии</span></li>
-        <li><span class="dot"></span><span class="idx">06</span><span class="label">Съёмка</span></li>
-        <li><span class="dot"></span><span class="idx">07</span><span class="label">Монтаж</span></li>
-        <li><span class="dot"></span><span class="idx">08</span><span class="label">Алгоритмы Instagram</span></li>
-        <li><span class="dot"></span><span class="idx">09</span><span class="label">Поиск клиентов</span></li>
-        <li><span class="dot"></span><span class="idx">10</span><span class="label">Упаковка услуг и доход</span></li>
+        <li><span class="dot"></span><span class="idx">01</span><span class="label" data-key="process.steps.0">Анализ бизнеса</span></li>
+        <li><span class="dot"></span><span class="idx">02</span><span class="label" data-key="process.steps.1">Поиск целевой аудитории</span></li>
+        <li><span class="dot"></span><span class="idx">03</span><span class="label" data-key="process.steps.2">Контент-план</span></li>
+        <li><span class="dot"></span><span class="idx">04</span><span class="label" data-key="process.steps.3">Сильные хуки</span></li>
+        <li><span class="dot"></span><span class="idx">05</span><span class="label" data-key="process.steps.4">Сценарии</span></li>
+        <li><span class="dot"></span><span class="idx">06</span><span class="label" data-key="process.steps.5">Съёмка</span></li>
+        <li><span class="dot"></span><span class="idx">07</span><span class="label" data-key="process.steps.6">Монтаж</span></li>
+        <li><span class="dot"></span><span class="idx">08</span><span class="label" data-key="process.steps.7">Алгоритмы Instagram</span></li>
+        <li><span class="dot"></span><span class="idx">09</span><span class="label" data-key="process.steps.8">Поиск клиентов</span></li>
+        <li><span class="dot"></span><span class="idx">10</span><span class="label" data-key="process.steps.9">Упаковка услуг и доход</span></li>
       </ol>
     </div>
   </section>
@@ -498,16 +498,16 @@
     <div class="container teacher-grid">
       <div class="teacher-copy">
         <div class="glow-blob" aria-hidden="true"></div>
-        <div class="eyebrow" data-reveal>АВТОР КУРСА</div>
-        <h2 class="teacher-name" data-reveal>Мухаммад Арсанукаев</h2>
-        <p class="teacher-role" data-reveal>Предприниматель · Основатель бренда Envibe · Практикующий Reelsmaker</p>
-        <p class="teacher-text" data-reveal>Строит собственный бренд Envibe и каждый день снимает Reels, которые приносят бизнесу реальные заявки — не просто просмотры. В курсе делится тем же подходом, который использует в своей работе.</p>
+        <div class="eyebrow" data-reveal data-key="teacher.eyebrow">АВТОР КУРСА</div>
+        <h2 class="teacher-name" data-reveal data-key="teacher.name">Мухаммад Арсанукаев</h2>
+        <p class="teacher-role" data-reveal data-key="teacher.role">Предприниматель · Основатель бренда Envibe · Практикующий Reelsmaker</p>
+        <p class="teacher-text" data-reveal data-key="teacher.text">Строит собственный бренд Envibe и каждый день снимает Reels, которые приносят бизнесу реальные заявки — не просто просмотры. В курсе делится тем же подходом, который использует в своей работе.</p>
         <div class="teacher-contact" data-reveal>
-          <a class="btn btn-outline icon-btn-lg" href="https://t.me/arsanukaef" target="_blank" rel="noopener" aria-label="Написать в Telegram">
+          <a class="btn btn-outline icon-btn-lg" href="https://t.me/arsanukaef" target="_blank" rel="noopener" aria-label="Написать в Telegram" data-social="telegram">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 12 21 3l-3.5 18-6-4.5L9 19l-1-6.5L2 12Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M21 3 8 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
             Telegram
           </a>
-          <a class="btn btn-outline icon-btn-lg" href="https://www.instagram.com/arsanukaef/" target="_blank" rel="noopener" aria-label="Instagram">
+          <a class="btn btn-outline icon-btn-lg" href="https://www.instagram.com/arsanukaef/" target="_blank" rel="noopener" aria-label="Instagram" data-social="instagram">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="17" cy="7" r="1" fill="currentColor"/></svg>
             Instagram
           </a>
@@ -520,20 +520,20 @@
   <section class="scene" id="episodes" data-section>
     <div class="container">
       <div class="episodes-head">
-        <div class="eyebrow" data-reveal>ПРОГРАММА · 10 МОДУЛЕЙ</div>
-        <h2 data-reveal>Курс устроен как сезон сериала — 10 серий, после которых вы работаете иначе.</h2>
+        <div class="eyebrow" data-reveal data-key="episodes.eyebrow">ПРОГРАММА · 10 МОДУЛЕЙ</div>
+        <h2 data-reveal data-key="episodes.heading">Курс устроен как сезон сериала — 10 серий, после которых вы работаете иначе.</h2>
       </div>
       <ol class="episodes">
-        <li class="ep" data-reveal><span class="ep-index">01</span><div><h3>Введение в профессию</h3><p>Кто такой Reelsmaker, как устроен рынок и почему бизнесу нужны сильные Reels.</p></div></li>
-        <li class="ep" data-reveal><span class="ep-index">02</span><div><h3>Анализ клиента</h3><p>Разбор ниши, продукта и позиционирования ещё до первой съёмки.</p></div></li>
-        <li class="ep" data-reveal><span class="ep-index">03</span><div><h3>Контент-план</h3><p>Система тем и рубрик, из-за которой контент никогда не заканчивается.</p></div></li>
-        <li class="ep" data-reveal><span class="ep-index">04</span><div><h3>Хуки</h3><p>Первые секунды, которые решают — досмотрят ролик или пролистнут.</p></div></li>
-        <li class="ep" data-reveal><span class="ep-index">05</span><div><h3>Форматы Reels</h3><p>Какие форматы реально дают охваты, а какие только выглядят красиво.</p></div></li>
-        <li class="ep" data-reveal><span class="ep-index">06</span><div><h3>Конструкция Reels и сценарии</h3><p>Драматургия ролика — от хука до чёткого призыва к действию.</p></div></li>
-        <li class="ep" data-reveal><span class="ep-index">07</span><div><h3>Съёмка</h3><p>Свет, кадр и техника — без дорогого оборудования.</p></div></li>
-        <li class="ep" data-reveal><span class="ep-index">08</span><div><h3>Монтаж</h3><p>Сборка, темп и звук — то, что удерживает зрителя до конца.</p></div></li>
-        <li class="ep" data-reveal><span class="ep-index">09</span><div><h3>Алгоритмы Instagram</h3><p>Как платформа распределяет охваты и как этим управлять.</p></div></li>
-        <li class="ep ep-secret" data-reveal><span class="ep-index">10</span><div><h3>Секретный модуль</h3><p class="lock">🔒 Раскрывается во время обучения</p></div></li>
+        <li class="ep" data-reveal><span class="ep-index">01</span><div><h3 data-key="episodes.items.0.title">Введение в профессию</h3><p data-key="episodes.items.0.desc">Кто такой Reelsmaker, как устроен рынок и почему бизнесу нужны сильные Reels.</p></div></li>
+        <li class="ep" data-reveal><span class="ep-index">02</span><div><h3 data-key="episodes.items.1.title">Анализ клиента</h3><p data-key="episodes.items.1.desc">Разбор ниши, продукта и позиционирования ещё до первой съёмки.</p></div></li>
+        <li class="ep" data-reveal><span class="ep-index">03</span><div><h3 data-key="episodes.items.2.title">Контент-план</h3><p data-key="episodes.items.2.desc">Система тем и рубрик, из-за которой контент никогда не заканчивается.</p></div></li>
+        <li class="ep" data-reveal><span class="ep-index">04</span><div><h3 data-key="episodes.items.3.title">Хуки</h3><p data-key="episodes.items.3.desc">Первые секунды, которые решают — досмотрят ролик или пролистнут.</p></div></li>
+        <li class="ep" data-reveal><span class="ep-index">05</span><div><h3 data-key="episodes.items.4.title">Форматы Reels</h3><p data-key="episodes.items.4.desc">Какие форматы реально дают охваты, а какие только выглядят красиво.</p></div></li>
+        <li class="ep" data-reveal><span class="ep-index">06</span><div><h3 data-key="episodes.items.5.title">Конструкция Reels и сценарии</h3><p data-key="episodes.items.5.desc">Драматургия ролика — от хука до чёткого призыва к действию.</p></div></li>
+        <li class="ep" data-reveal><span class="ep-index">07</span><div><h3 data-key="episodes.items.6.title">Съёмка</h3><p data-key="episodes.items.6.desc">Свет, кадр и техника — без дорогого оборудования.</p></div></li>
+        <li class="ep" data-reveal><span class="ep-index">08</span><div><h3 data-key="episodes.items.7.title">Монтаж</h3><p data-key="episodes.items.7.desc">Сборка, темп и звук — то, что удерживает зрителя до конца.</p></div></li>
+        <li class="ep" data-reveal><span class="ep-index">09</span><div><h3 data-key="episodes.items.8.title">Алгоритмы Instagram</h3><p data-key="episodes.items.8.desc">Как платформа распределяет охваты и как этим управлять.</p></div></li>
+        <li class="ep ep-secret" data-reveal><span class="ep-index">10</span><div><h3 data-key="episodes.items.9.title">Секретный модуль</h3><p class="lock" data-key="episodes.items.9.lock">🔒 Раскрывается во время обучения</p></div></li>
       </ol>
     </div>
   </section>
@@ -541,16 +541,16 @@
   <!-- 7. FORMAT -->
   <section class="scene" id="s7" data-section>
     <div class="container">
-      <div class="eyebrow" data-reveal>ФОРМАТ ОБУЧЕНИЯ</div>
+      <div class="eyebrow" data-reveal data-key="format.eyebrow">ФОРМАТ ОБУЧЕНИЯ</div>
       <div class="format-grid" style="margin-top:2.2rem" data-reveal>
-        <div class="ftile"><span class="ftile-num">25</span><span class="ftile-label">дней обучения</span></div>
-        <div class="ftile"><span class="ftile-num">≈20</span><span class="ftile-label">часов практического материала</span></div>
-        <div class="ftile"><span class="ftile-num">15</span><span class="ftile-label">видеоуроков в записи</span></div>
-        <div class="ftile"><span class="ftile-label" style="margin-top:0">Домашние задания с проверкой</span></div>
-        <div class="ftile"><span class="ftile-label" style="margin-top:0">Онлайн-созвоны с куратором</span></div>
-        <div class="ftile"><span class="ftile-label" style="margin-top:0">Чат поддержки на весь курс</span></div>
-        <div class="ftile"><span class="ftile-label" style="margin-top:0">Обратная связь по прогрессу</span></div>
-        <div class="ftile"><span class="ftile-label" style="margin-top:0">Именной сертификат по завершении</span></div>
+        <div class="ftile"><span class="ftile-num" data-key="format.tiles.0.num">25</span><span class="ftile-label" data-key="format.tiles.0.label">дней обучения</span></div>
+        <div class="ftile"><span class="ftile-num" data-key="format.tiles.1.num">≈20</span><span class="ftile-label" data-key="format.tiles.1.label">часов практического материала</span></div>
+        <div class="ftile"><span class="ftile-num" data-key="format.tiles.2.num">15</span><span class="ftile-label" data-key="format.tiles.2.label">видеоуроков в записи</span></div>
+        <div class="ftile"><span class="ftile-label" style="margin-top:0" data-key="format.tiles.3.label">Домашние задания с проверкой</span></div>
+        <div class="ftile"><span class="ftile-label" style="margin-top:0" data-key="format.tiles.4.label">Онлайн-созвоны с куратором</span></div>
+        <div class="ftile"><span class="ftile-label" style="margin-top:0" data-key="format.tiles.5.label">Чат поддержки на весь курс</span></div>
+        <div class="ftile"><span class="ftile-label" style="margin-top:0" data-key="format.tiles.6.label">Обратная связь по прогрессу</span></div>
+        <div class="ftile"><span class="ftile-label" style="margin-top:0" data-key="format.tiles.7.label">Именной сертификат по завершении</span></div>
       </div>
     </div>
   </section>
@@ -559,66 +559,66 @@
   <section class="scene" id="pricing" data-section>
     <div class="container">
       <div class="pricing-head">
-        <div class="eyebrow" data-reveal>ТАРИФЫ</div>
-        <h2 data-reveal>Выберите формат — самостоятельный или личное наставничество.</h2>
+        <div class="eyebrow" data-reveal data-key="pricing.eyebrow">ТАРИФЫ</div>
+        <h2 data-reveal data-key="pricing.heading">Выберите формат — самостоятельный или личное наставничество.</h2>
       </div>
       <div class="price-grid">
         <div class="price-card glass spot" data-reveal>
-          <span class="price-kicker">Тариф</span>
-          <h3>Онлайн</h3>
-          <div class="price-value"><span class="num">40&nbsp;000</span><span class="cur">₽</span></div>
+          <span class="price-kicker" data-key="pricing.cards.0.kicker">Тариф</span>
+          <h3 data-key="pricing.cards.0.title">Онлайн</h3>
+          <div class="price-value"><span class="num" data-key="pricing.cards.0.price" data-key-format="thousands">40&nbsp;000</span><span class="cur">₽</span></div>
           <ul class="price-list">
-            <li>15 видеоуроков</li>
-            <li>3 онлайн-созвона</li>
-            <li>Проверка домашних заданий</li>
-            <li>Чат поддержки</li>
-            <li>Все материалы курса</li>
-            <li>Именной сертификат</li>
+            <li data-key="pricing.cards.0.items.0">15 видеоуроков</li>
+            <li data-key="pricing.cards.0.items.1">3 онлайн-созвона</li>
+            <li data-key="pricing.cards.0.items.2">Проверка домашних заданий</li>
+            <li data-key="pricing.cards.0.items.3">Чат поддержки</li>
+            <li data-key="pricing.cards.0.items.4">Все материалы курса</li>
+            <li data-key="pricing.cards.0.items.5">Именной сертификат</li>
           </ul>
-          <div class="price-installment">рассрочка: от 13&nbsp;333 ₽ × 3, без переплат</div>
-          <button class="btn btn-outline js-select" data-tariff="Онлайн" data-price="40 000 ₽">Выбрать Онлайн</button>
+          <div class="price-installment" data-key="pricing.cards.0.installment">рассрочка: от 13&nbsp;333 ₽ × 3, без переплат</div>
+          <button class="btn btn-outline js-select" data-tariff="Онлайн" data-price="40 000 ₽" data-key="pricing.cards.0.cta">Выбрать Онлайн</button>
         </div>
         <div class="price-card price-card-premium glass spot" data-reveal>
-          <span class="price-kicker">Тариф</span>
-          <h3>Личное наставничество</h3>
-          <div class="price-value"><span class="num">70&nbsp;000</span><span class="cur">₽</span></div>
+          <span class="price-kicker" data-key="pricing.cards.1.kicker">Тариф</span>
+          <h3 data-key="pricing.cards.1.title">Личное наставничество</h3>
+          <div class="price-value"><span class="num" data-key="pricing.cards.1.price" data-key-format="thousands">70&nbsp;000</span><span class="cur">₽</span></div>
           <ul class="price-list">
-            <li>Индивидуальное обучение</li>
-            <li>10 офлайн-встреч</li>
-            <li>Разбор домашних заданий</li>
-            <li>Помощь с первыми клиентами</li>
-            <li>Поддержка между встречами</li>
-            <li>Именной сертификат</li>
+            <li data-key="pricing.cards.1.items.0">Индивидуальное обучение</li>
+            <li data-key="pricing.cards.1.items.1">10 офлайн-встреч</li>
+            <li data-key="pricing.cards.1.items.2">Разбор домашних заданий</li>
+            <li data-key="pricing.cards.1.items.3">Помощь с первыми клиентами</li>
+            <li data-key="pricing.cards.1.items.4">Поддержка между встречами</li>
+            <li data-key="pricing.cards.1.items.5">Именной сертификат</li>
           </ul>
-          <div class="price-installment">рассрочка: от 23&nbsp;333 ₽ × 3, без переплат</div>
-          <button class="btn btn-solid js-select" data-tariff="Личное наставничество" data-price="70 000 ₽">Выбрать наставничество</button>
+          <div class="price-installment" data-key="pricing.cards.1.installment">рассрочка: от 23&nbsp;333 ₽ × 3, без переплат</div>
+          <button class="btn btn-solid js-select" data-tariff="Личное наставничество" data-price="70 000 ₽" data-key="pricing.cards.1.cta">Выбрать наставничество</button>
         </div>
       </div>
-      <p class="price-note" data-reveal>Доступна беспроцентная рассрочка на 3 платежа по обоим тарифам.</p>
+      <p class="price-note" data-reveal data-key="pricing.note">Доступна беспроцентная рассрочка на 3 платежа по обоим тарифам.</p>
     </div>
   </section>
 
   <!-- 9. CERTIFICATE -->
   <section class="scene" id="s9" data-section>
     <div class="container">
-      <div class="eyebrow" data-reveal style="justify-content:center;width:100%">ПОСЛЕ КУРСА</div>
+      <div class="eyebrow" data-reveal style="justify-content:center;width:100%" data-key="certificate.eyebrow">ПОСЛЕ КУРСА</div>
       <div class="cert-wrap" style="margin-top:2rem">
         <div class="cert glass" data-reveal>
           <div class="cert-inner">
             <div class="cert-seal" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.2"/></svg>
             </div>
-            <div class="cert-label">Именной сертификат</div>
+            <div class="cert-label" data-key="certificate.label">Именной сертификат</div>
             <div class="cert-name"><span class="line">Ф. И. О. ученика</span></div>
-            <div class="cert-course">завершил(а) курс <b>REELSMAKER</b></div>
+            <div class="cert-course"><span data-key="certificate.courseIntro">завершил(а) курс </span><b data-key="certificate.courseName">REELSMAKER</b></div>
             <div class="cert-sign">
-              <span>М. Арсанукаев<br>автор курса</span>
+              <span><span data-key="certificate.signName">М. Арсанукаев</span><br><span data-key="certificate.signRole">автор курса</span></span>
               <span id="certDate">2026</span>
             </div>
           </div>
         </div>
       </div>
-      <p class="cert-copy" style="text-align:center" data-reveal>Сертификат подтверждает: вы прошли путь от анализа бизнеса до первых клиентов — и умеете применять это на практике.</p>
+      <p class="cert-copy" style="text-align:center" data-reveal data-key="certificate.copy">Сертификат подтверждает: вы прошли путь от анализа бизнеса до первых клиентов — и умеете применять это на практике.</p>
     </div>
   </section>
 
@@ -626,9 +626,9 @@
   <section class="scene final" id="s10" data-section>
     <div class="glow-blob" aria-hidden="true"></div>
     <div class="container" style="display:flex;flex-direction:column;align-items:center">
-      <h2 class="final-title" data-reveal>Хватит смотреть чужие Reels. Пора снимать свои — те, что <span class="accent">работают</span>.</h2>
-      <p class="final-note" data-reveal>Курс REELSMAKER · от 40&nbsp;000 ₽ · рассрочка на 3 платежа</p>
-      <a class="btn btn-solid" href="#pricing" data-reveal>Выбрать тариф</a>
+      <h2 class="final-title" data-reveal><span data-key="final.titleBefore">Хватит смотреть чужие Reels. Пора снимать свои — те, что </span><span class="accent" data-key="final.titleAccent">работают</span><span data-key="final.titleAfter">.</span></h2>
+      <p class="final-note" data-reveal data-key="final.note">Курс REELSMAKER · от 40&nbsp;000 ₽ · рассрочка на 3 платежа</p>
+      <a class="btn btn-solid" href="#pricing" data-reveal data-key="final.cta">Выбрать тариф</a>
     </div>
   </section>
 
@@ -674,20 +674,201 @@
   <div class="container footer-row">
     <div class="footer-brand">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 8V4a1 1 0 0 1 1-1h4M21 8V4a1 1 0 0 0-1-1h-4M3 16v4a1 1 0 0 0 1 1h4M21 16v4a1 1 0 0 1-1 1h-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-      REELSMAKER · курс Мухаммада Арсанукаева
+      <span data-key="footer.brand">REELSMAKER · курс Мухаммада Арсанукаева</span>
     </div>
     <div class="footer-links">
-      <a class="footer-privacy" href="privacy.html">Политика конфиденциальности</a>
-      <a class="footer-privacy" href="privacy.html#cookies">Cookie-файлы</a>
+      <a class="footer-privacy" href="privacy.html" data-key="footer.privacyLabel">Политика конфиденциальности</a>
+      <a class="footer-privacy" href="privacy.html#cookies" data-key="footer.cookieLabel">Cookie-файлы</a>
     </div>
-    <div class="footer-meta">© 2026 · Envibe</div>
+    <div class="footer-meta" data-key="footer.meta">© 2026 · Envibe</div>
   </div>
 </footer>
 
 <script>
+  // Default site copy — mirrors what's hard-coded in the markup above.
+  // The admin panel edits a copy of this shape; the worker (once configured
+  // below) can override any of it at runtime without a redeploy.
+  window.SITE_CONTENT_DEFAULT = {
+    brand: { bold: "REELS", rest: "MAKER" },
+    nav: { pricingLabel: "Тарифы" },
+    social: { telegram: "https://t.me/arsanukaef", instagram: "https://www.instagram.com/arsanukaef/" },
+    hero: {
+      eyebrow: "КУРС · ПРОФЕССИЯ REELSMAKER",
+      titleLine1: "REELS,",
+      titleLine2: "КОТОРЫЕ",
+      titleAccent: "РАБОТАЮТ.",
+      sub: "Практический курс по профессии Reelsmaker — от анализа бизнеса и целевой аудитории до сценария, съёмки, монтажа и первых клиентов.",
+      ctaLabel: "Смотреть программу",
+      ctaNote: "10 модулей · 25 дней · от 40 000 ₽",
+      authorName: "Мухаммад Арсанукаев",
+      authorRole: "Автор курса REELSMAKER"
+    },
+    statement: {
+      textBefore: "Reels — это не контент. Это ",
+      textEm: "отдел продаж",
+      textAfter: ", который работает 24/7.",
+      foot: "Пока вы спите — он приносит заявки."
+    },
+    numbers: {
+      eyebrow: "РЕЗУЛЬТАТ УЧЕНИКОВ",
+      heading: "Цифры по ученикам курса REELSMAKER — не обещания, а статистика.",
+      stats: [
+        { target: 35, unit: "+", label: "учеников уже прошли курс" },
+        { target: 100, unit: "%", label: "завершили обучение до конца" },
+        { target: 100000, prefix: "≈", unit: "₽", label: "средний результат за первый месяц" },
+        { target: 300000, unit: "₽/мес", label: "лучший результат — через 3 месяца после курса" }
+      ],
+      foot: "Кейсы, скрины заявок и доходов учеников — показываем на самом курсе."
+    },
+    process: {
+      eyebrow: "ПУТЬ REELSMAKER’А · 25 ДНЕЙ",
+      leadBefore: "От анализа бизнеса до ",
+      leadBold: "первых денег",
+      leadAfter: " — путь, который обычно занимает месяцы, здесь укладывается в 25 дней.",
+      steps: ["Анализ бизнеса","Поиск целевой аудитории","Контент-план","Сильные хуки","Сценарии","Съёмка","Монтаж","Алгоритмы Instagram","Поиск клиентов","Упаковка услуг и доход"]
+    },
+    teacher: {
+      eyebrow: "АВТОР КУРСА",
+      name: "Мухаммад Арсанукаев",
+      role: "Предприниматель · Основатель бренда Envibe · Практикующий Reelsmaker",
+      text: "Строит собственный бренд Envibe и каждый день снимает Reels, которые приносят бизнесу реальные заявки — не просто просмотры. В курсе делится тем же подходом, который использует в своей работе."
+    },
+    episodes: {
+      eyebrow: "ПРОГРАММА · 10 МОДУЛЕЙ",
+      heading: "Курс устроен как сезон сериала — 10 серий, после которых вы работаете иначе.",
+      items: [
+        { title: "Введение в профессию", desc: "Кто такой Reelsmaker, как устроен рынок и почему бизнесу нужны сильные Reels." },
+        { title: "Анализ клиента", desc: "Разбор ниши, продукта и позиционирования ещё до первой съёмки." },
+        { title: "Контент-план", desc: "Система тем и рубрик, из-за которой контент никогда не заканчивается." },
+        { title: "Хуки", desc: "Первые секунды, которые решают — досмотрят ролик или пролистнут." },
+        { title: "Форматы Reels", desc: "Какие форматы реально дают охваты, а какие только выглядят красиво." },
+        { title: "Конструкция Reels и сценарии", desc: "Драматургия ролика — от хука до чёткого призыва к действию." },
+        { title: "Съёмка", desc: "Свет, кадр и техника — без дорогого оборудования." },
+        { title: "Монтаж", desc: "Сборка, темп и звук — то, что удерживает зрителя до конца." },
+        { title: "Алгоритмы Instagram", desc: "Как платформа распределяет охваты и как этим управлять." },
+        { title: "Секретный модуль", lock: "🔒 Раскрывается во время обучения" }
+      ]
+    },
+    format: {
+      eyebrow: "ФОРМАТ ОБУЧЕНИЯ",
+      tiles: [
+        { num: "25", label: "дней обучения" },
+        { num: "≈20", label: "часов практического материала" },
+        { num: "15", label: "видеоуроков в записи" },
+        { label: "Домашние задания с проверкой" },
+        { label: "Онлайн-созвоны с куратором" },
+        { label: "Чат поддержки на весь курс" },
+        { label: "Обратная связь по прогрессу" },
+        { label: "Именной сертификат по завершении" }
+      ]
+    },
+    pricing: {
+      eyebrow: "ТАРИФЫ",
+      heading: "Выберите формат — самостоятельный или личное наставничество.",
+      cards: [
+        {
+          kicker: "Тариф", title: "Онлайн", price: "40000",
+          items: ["15 видеоуроков","3 онлайн-созвона","Проверка домашних заданий","Чат поддержки","Все материалы курса","Именной сертификат"],
+          installment: "рассрочка: от 13 333 ₽ × 3, без переплат",
+          cta: "Выбрать Онлайн"
+        },
+        {
+          kicker: "Тариф", title: "Личное наставничество", price: "70000",
+          items: ["Индивидуальное обучение","10 офлайн-встреч","Разбор домашних заданий","Помощь с первыми клиентами","Поддержка между встречами","Именной сертификат"],
+          installment: "рассрочка: от 23 333 ₽ × 3, без переплат",
+          cta: "Выбрать наставничество"
+        }
+      ],
+      note: "Доступна беспроцентная рассрочка на 3 платежа по обоим тарифам."
+    },
+    certificate: {
+      eyebrow: "ПОСЛЕ КУРСА",
+      label: "Именной сертификат",
+      courseIntro: "завершил(а) курс ",
+      courseName: "REELSMAKER",
+      signName: "М. Арсанукаев",
+      signRole: "автор курса",
+      copy: "Сертификат подтверждает: вы прошли путь от анализа бизнеса до первых клиентов — и умеете применять это на практике."
+    },
+    final: {
+      titleBefore: "Хватит смотреть чужие Reels. Пора снимать свои — те, что ",
+      titleAccent: "работают",
+      titleAfter: ".",
+      note: "Курс REELSMAKER · от 40 000 ₽ · рассрочка на 3 платежа",
+      cta: "Выбрать тариф"
+    },
+    footer: {
+      brand: "REELSMAKER · курс Мухаммада Арсанукаева",
+      privacyLabel: "Политика конфиденциальности",
+      cookieLabel: "Cookie-файлы",
+      meta: "© 2026 · Envibe"
+    }
+  };
+
+  // Formatting + generic [data-key] hydration, shared with the admin panel.
+  window.SiteContent = (function(){
+    function getPath(obj, path){
+      return path.split('.').reduce(function(o,k){ return (o==null)?undefined:o[k]; }, obj);
+    }
+    function formatThousands(n){ return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' '); }
+    function apply(data, root){
+      root = root || document;
+      root.querySelectorAll('[data-key]').forEach(function(el){
+        var key = el.getAttribute('data-key');
+        var val = getPath(data, key);
+        if(val === undefined || val === null) return;
+        var attr = el.getAttribute('data-key-attr');
+        var fmt = el.getAttribute('data-key-format');
+        var out = (fmt === 'thousands') ? formatThousands(val) : val;
+        if(attr){ el.setAttribute(attr, out); }
+        else { el.textContent = out; }
+      });
+      root.querySelectorAll('.price-card').forEach(function(card){
+        var title = card.querySelector('h3');
+        var priceNum = card.querySelector('.price-value .num');
+        var btn = card.querySelector('.js-select');
+        if(title && priceNum && btn){
+          btn.dataset.tariff = title.textContent.trim();
+          btn.dataset.price = priceNum.textContent.replace(/ /g,' ').trim() + ' ₽';
+        }
+      });
+      if(data.social){
+        root.querySelectorAll('[data-social="telegram"]').forEach(function(a){ if(data.social.telegram) a.href = data.social.telegram; });
+        root.querySelectorAll('[data-social="instagram"]').forEach(function(a){ if(data.social.instagram) a.href = data.social.instagram; });
+      }
+    }
+    return { apply: apply, formatThousands: formatThousands, getPath: getPath };
+  })();
+</script>
+<script>
 (function(){
   "use strict";
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* hydrate default copy, then try to pull live edits from the worker */
+  SiteContent.apply(window.SITE_CONTENT_DEFAULT);
+  var WORKER_URL = ''; // set once the Cloudflare Worker is deployed, e.g. 'https://reelsmaker-admin.<subdomain>.workers.dev'
+  if(WORKER_URL){
+    fetch(WORKER_URL + '/content').then(function(r){ return r.ok ? r.json() : null; }).then(function(data){
+      if(data) SiteContent.apply(data);
+    }).catch(function(){ /* worker unreachable — keep default copy */ });
+  }
+
+  /* hidden admin entrance: click the header logo 5x within 2s */
+  var brandLogo = document.getElementById('brandLogo');
+  if(brandLogo){
+    var clickTimes = [];
+    brandLogo.addEventListener('click', function(ev){
+      var now = Date.now();
+      clickTimes.push(now);
+      clickTimes = clickTimes.filter(function(t){ return now - t < 2000; });
+      if(clickTimes.length >= 5){
+        ev.preventDefault();
+        clickTimes = [];
+        window.location.href = 'panel-r7k2q9.html';
+      }
+    });
+  }
 
   /* header scrolled state */
   var chrome = document.getElementById('chrome');
@@ -770,7 +951,10 @@
   });
 
   /* pricing lead modal -> Telegram handoff */
-  var TELEGRAM_LINK = 'https://t.me/arsanukaef';
+  function currentTelegramLink(){
+    var a = document.querySelector('[data-social="telegram"]');
+    return (a && a.getAttribute('href')) || 'https://t.me/arsanukaef';
+  }
   var backdrop = document.getElementById('leadBackdrop');
   var leadForm = document.getElementById('leadForm');
   var leadTariff = document.getElementById('leadTariff');
@@ -817,7 +1001,7 @@
     var prior = leadPriorTraining.value.trim();
     if(exp) text += '\nОпыт работы: ' + exp;
     if(prior) text += '\nОбучался(-ась) раньше: ' + prior;
-    var url = TELEGRAM_LINK + '?text=' + encodeURIComponent(text);
+    var url = currentTelegramLink() + '?text=' + encodeURIComponent(text);
     window.location.href = url;
     closeModal();
     leadForm.reset();
