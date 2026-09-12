@@ -13,6 +13,7 @@
  */
 
 const TOKEN_TTL_SECONDS = 12 * 60 * 60; // 12h admin session
+const KV_KEY = 'reelsmaker_content'; // namespaced so it can't collide with other projects sharing this KV namespace
 
 function corsHeaders(origin) {
   const allowed = new Set([
@@ -113,7 +114,7 @@ export default {
     }
 
     if (url.pathname === '/content' && request.method === 'GET') {
-      const stored = await env.CONTENT_KV.get('content');
+      const stored = await env.CONTENT_KV.get(KV_KEY);
       if (!stored) return json(null, { status: 200 }, origin);
       return json(JSON.parse(stored), { status: 200 }, origin);
     }
@@ -145,7 +146,7 @@ export default {
       } catch (e) {
         return json({ error: 'bad request' }, { status: 400 }, origin);
       }
-      await env.CONTENT_KV.put('content', JSON.stringify(body));
+      await env.CONTENT_KV.put(KV_KEY, JSON.stringify(body));
       return json({ ok: true }, { status: 200 }, origin);
     }
 
