@@ -9,6 +9,7 @@
   :root{
     --canvas:#050505;
     --canvas-2:#0a0d13;
+    --canvas-3:#0d121b;
     --ink:#f3f5fa;
     --ink-dim:#8d93a6;
     --ink-faint:#565c6e;
@@ -28,46 +29,79 @@
   *,*::before,*::after{box-sizing:border-box}
   html,body{margin:0;padding:0;background:var(--canvas);color:var(--ink);font-family:var(--font);line-height:1.5}
   a{color:var(--electric-2)}
-  .wrap{max-width:880px;margin-inline:auto;padding:2.5rem 1.25rem 6rem}
-  header{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:2rem;flex-wrap:wrap}
-  h1{font-size:1.3rem;font-weight:700;margin:0}
-  .tag{font-family:var(--font-mono);font-size:.72rem;color:var(--ink-faint);letter-spacing:.08em;text-transform:uppercase}
   .btn{
-    display:inline-flex;align-items:center;gap:.4rem;padding:.7rem 1.3rem;border-radius:999px;
-    font-size:.88rem;font-weight:600;border:1px solid var(--glass-border-strong);background:var(--glass-fill);
-    color:var(--ink);cursor:pointer;transition:border-color .2s,background-color .2s;
+    display:inline-flex;align-items:center;gap:.4rem;padding:.65rem 1.2rem;border-radius:999px;
+    font-size:.86rem;font-weight:600;border:1px solid var(--glass-border-strong);background:var(--glass-fill);
+    color:var(--ink);cursor:pointer;transition:border-color .2s,background-color .2s;white-space:nowrap;
   }
   .btn:hover{border-color:var(--electric-2);background:rgba(255,255,255,.08)}
   .btn-solid{background:linear-gradient(180deg,var(--electric-2),var(--electric));border-color:transparent;color:#fff}
   .btn-danger{border-color:rgba(224,104,95,.5);color:var(--danger)}
   .btn:disabled{opacity:.5;cursor:not-allowed}
 
+  /* ---------- login ---------- */
   #loginScreen{max-width:360px;margin:14vh auto 0;padding:0 1.25rem}
   .card{background:var(--canvas-2);border:1px solid var(--glass-border-strong);border-radius:var(--r-md);padding:1.8rem}
+  .tag{font-family:var(--font-mono);font-size:.72rem;color:var(--ink-faint);letter-spacing:.08em;text-transform:uppercase}
   .field{display:flex;flex-direction:column;gap:.4rem;margin-top:1rem}
   .field:first-child{margin-top:0}
-  .field-label{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.05em;color:var(--ink-faint);word-break:break-all}
-  input[type="password"],input[type="text"],textarea{
+  .field-label{font-size:.85rem;color:var(--ink-dim)}
+  .field-label .req{color:var(--danger)}
+  input[type="password"],input[type="text"],input[type="number"],textarea{
     padding:.7rem .85rem;border-radius:var(--r-sm);border:1px solid var(--glass-border-strong);
     background:rgba(255,255,255,.03);color:var(--ink);font:inherit;font-size:.92rem;width:100%;resize:vertical;
   }
   input:focus,textarea:focus{outline:none;border-color:var(--electric-2);background:rgba(255,255,255,.05)}
   .error{color:var(--danger);font-size:.85rem;margin-top:.8rem;display:none}
   .error.show{display:block}
+  .hint{color:var(--ink-faint);font-size:.85rem;margin-top:.5rem}
 
-  .field-section{border:1px solid var(--glass-border);border-radius:var(--r-md);padding:1.2rem 1.2rem .4rem;margin-bottom:1.2rem}
-  .field-section > legend{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--electric-2);padding:0 .4rem}
-  .field-group{border:1px dashed var(--glass-border);border-radius:var(--r-sm);padding:.9rem;margin:.8rem 0}
-  .field-array-title{font-family:var(--font-mono);font-size:.68rem;color:var(--ink-faint);margin-bottom:.3rem}
+  /* ---------- admin shell ---------- */
+  #adminScreen{display:flex;min-height:100vh}
+  .sidebar{
+    width:260px;flex-shrink:0;background:var(--canvas-2);border-right:1px solid var(--glass-border);
+    padding:1.4rem 1rem;position:sticky;top:0;height:100vh;overflow-y:auto;
+  }
+  .sidebar-title{padding:.4rem .6rem 1rem}
+  .sidebar-title .tag{display:block}
+  .sidebar-title h1{font-size:1.05rem;margin:.3rem 0 0}
+  .nav-btn{
+    display:flex;align-items:center;gap:.6rem;width:100%;text-align:left;padding:.65rem .8rem;border-radius:var(--r-sm);
+    background:none;border:none;color:var(--ink-dim);font:inherit;font-size:.88rem;cursor:pointer;margin-bottom:.15rem;
+  }
+  .nav-btn:hover{background:var(--glass-fill);color:var(--ink)}
+  .nav-btn.active{background:rgba(61,107,255,.16);color:var(--ink);font-weight:600}
+  .nav-btn .n{font-family:var(--font-mono);font-size:.72rem;color:var(--ink-faint);min-width:1.4rem}
+  .nav-btn.active .n{color:var(--electric-2)}
+
+  .main{flex:1;min-width:0;padding:1.8rem clamp(1rem,3vw,2.6rem) 6rem}
+  .main-header{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.6rem}
+  .main-header h2{font-size:1.4rem;margin:0}
+  .main-header p{color:var(--ink-faint);font-size:.88rem;margin:.4rem 0 0}
+  .header-actions{display:flex;gap:.6rem;flex-wrap:wrap}
+
+  .page{display:none}
+  .page.active{display:block}
+  .field-card{border:1px solid var(--glass-border);border-radius:var(--r-md);padding:1.1rem 1.2rem;margin-bottom:1rem}
+  .field-card-title{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--electric-2);margin-bottom:.9rem}
+  .field-row{display:grid;grid-template-columns:1fr;gap:1rem}
+  @media(min-width:640px){.field-row.cols-2{grid-template-columns:1fr 1fr}}
+
+  #mobileNavToggle{display:none}
+  @media(max-width:880px){
+    #adminScreen{flex-direction:column}
+    .sidebar{width:100%;height:auto;position:static;padding:1rem;display:none}
+    .sidebar.open{display:block}
+    #mobileNavToggle{display:inline-flex;margin-bottom:1rem}
+  }
 
   #status{position:fixed;left:0;right:0;bottom:0;padding:1rem 1.25rem;text-align:center;font-size:.88rem;
-    background:rgba(5,5,5,.9);border-top:1px solid var(--glass-border);backdrop-filter:blur(10px);
-    transform:translateY(100%);transition:transform .3s ease;z-index:10}
+    background:rgba(5,5,5,.92);border-top:1px solid var(--glass-border);backdrop-filter:blur(10px);
+    transform:translateY(100%);transition:transform .3s ease;z-index:20}
   #status.show{transform:translateY(0)}
   #status.ok{color:var(--ok)}
   #status.err{color:var(--danger)}
 
-  .hint{color:var(--ink-faint);font-size:.85rem;margin-top:.5rem}
   [hidden]{display:none!important}
 </style>
 </head>
@@ -76,7 +110,7 @@
 <div id="loginScreen">
   <div class="card">
     <div class="tag">REELSMAKER · ADMIN</div>
-    <h1 style="margin-top:.6rem">Вход в панель</h1>
+    <h1 style="margin-top:.6rem;font-size:1.3rem">Вход в панель</h1>
     <form id="loginForm">
       <div class="field">
         <span class="field-label">Пароль</span>
@@ -89,21 +123,29 @@
   </div>
 </div>
 
-<div class="wrap" id="adminScreen" hidden>
-  <header>
-    <div>
-      <div class="tag">REELSMAKER · ADMIN</div>
-      <h1 style="margin-top:.4rem">Редактирование контента сайта</h1>
+<div id="adminScreen" hidden>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-title">
+      <span class="tag">REELSMAKER · ADMIN</span>
+      <h1>Разделы сайта</h1>
     </div>
-    <div style="display:flex;gap:.6rem;flex-wrap:wrap">
-      <button class="btn" id="reloadBtn" type="button">Обновить</button>
-      <button class="btn btn-danger" id="logoutBtn" type="button">Выйти</button>
+    <nav id="navList"></nav>
+    <button class="btn btn-danger" id="logoutBtn" type="button" style="width:100%;justify-content:center;margin-top:1rem">Выйти</button>
+  </aside>
+  <main class="main">
+    <button class="btn" id="mobileNavToggle" type="button">☰ Разделы</button>
+    <div class="main-header">
+      <div>
+        <h2 id="pageTitle">—</h2>
+        <p>Изменишь текст — нажми «Сохранить». Изменения появятся на сайте сразу (обнови страницу сайта).</p>
+      </div>
+      <div class="header-actions">
+        <button class="btn" id="reloadBtn" type="button">Обновить данные</button>
+        <button class="btn btn-solid" id="saveBtn" type="button">Сохранить</button>
+      </div>
     </div>
-  </header>
-  <p class="hint">Меняйте текст ниже и нажмите «Сохранить». Изменения появятся на сайте сразу после сохранения (обновите страницу сайта).</p>
-  <button class="btn btn-solid" id="saveBtnTop" type="button" style="margin:1.2rem 0">Сохранить</button>
-  <div id="formRoot"></div>
-  <button class="btn btn-solid" id="saveBtnBottom" type="button">Сохранить</button>
+    <div id="pagesRoot"></div>
+  </main>
 </div>
 
 <div id="status"></div>
@@ -112,11 +154,10 @@
 (function(){
   "use strict";
 
-  // Same default copy as index.html — used as a starting point until the
-  // worker has a saved version, and as the fallback if the worker is
-  // unreachable. Set WORKER_URL once the Cloudflare Worker is deployed.
+  // Set this once the Cloudflare Worker is deployed (see worker/README.md).
   var WORKER_URL = 'https://arsanukaef.z7gf59b4cn.workers.dev';
 
+  /* ---------- default content (fallback + starting point) ---------- */
   var DEFAULT_CONTENT = {
     brand: { bold: "REELS", rest: "MAKER" },
     nav: { pricingLabel: "Тарифы" },
@@ -234,6 +275,196 @@
     }
   };
 
+  /* ---------- page/field config: this is what makes the panel readable ---------- */
+  function episodeBlock(i, num){
+    var item = DEFAULT_CONTENT.episodes.items[i];
+    var fields = [{ path: 'episodes.items.' + i + '.title', label: 'Заголовок', type: 'text' }];
+    if('desc' in item) fields.push({ path: 'episodes.items.' + i + '.desc', label: 'Описание', type: 'textarea' });
+    if('lock' in item) fields.push({ path: 'episodes.items.' + i + '.lock', label: 'Текст на закрытом уроке', type: 'text' });
+    return { heading: 'Урок ' + num, fields: fields };
+  }
+  function stepField(i, num){
+    return { path: 'process.steps.' + i, label: 'Шаг ' + num, type: 'text' };
+  }
+  function tileBlock(i, num){
+    var tile = DEFAULT_CONTENT.format.tiles[i];
+    var fields = [];
+    if('num' in tile) fields.push({ path: 'format.tiles.' + i + '.num', label: 'Число/символ', type: 'text' });
+    fields.push({ path: 'format.tiles.' + i + '.label', label: 'Подпись', type: 'text' });
+    return { heading: 'Плитка ' + num, fields: fields };
+  }
+  function statBlock(i, num){
+    return {
+      heading: 'Показатель ' + num,
+      fields: [
+        { path: 'numbers.stats.' + i + '.target', label: 'Число (анимируется на сайте)', type: 'number' },
+        { path: 'numbers.stats.' + i + '.prefix', label: 'Символ перед числом (необязательно, например ≈)', type: 'text' },
+        { path: 'numbers.stats.' + i + '.unit', label: 'Текст/символ после числа (например %, +, ₽)', type: 'text' },
+        { path: 'numbers.stats.' + i + '.label', label: 'Подпись под числом', type: 'text' }
+      ]
+    };
+  }
+  function pricingCardBlocks(i, num){
+    var card = DEFAULT_CONTENT.pricing.cards[i];
+    var blocks = [{
+      heading: 'Тариф ' + num + ' — общее',
+      fields: [
+        { path: 'pricing.cards.' + i + '.kicker', label: 'Надпись над названием', type: 'text' },
+        { path: 'pricing.cards.' + i + '.title', label: 'Название тарифа', type: 'text' },
+        { path: 'pricing.cards.' + i + '.price', label: 'Цена (число, без пробелов)', type: 'number' },
+        { path: 'pricing.cards.' + i + '.installment', label: 'Текст про рассрочку', type: 'text' },
+        { path: 'pricing.cards.' + i + '.cta', label: 'Текст на кнопке', type: 'text' }
+      ]
+    }];
+    var itemFields = card.items.map(function(_, j){
+      return { path: 'pricing.cards.' + i + '.items.' + j, label: 'Пункт ' + (j + 1), type: 'text' };
+    });
+    blocks.push({ heading: 'Тариф ' + num + ' — что входит', fields: itemFields });
+    return blocks;
+  }
+
+  var PAGES = [
+    {
+      id: 'hero', title: 'Шапка и главный экран',
+      blocks: [
+        { fields: [
+          { path: 'brand.bold', label: 'Логотип — жирная часть', type: 'text' },
+          { path: 'brand.rest', label: 'Логотип — обычная часть', type: 'text' },
+          { path: 'nav.pricingLabel', label: 'Текст кнопки «Тарифы» в шапке', type: 'text' },
+          { path: 'social.telegram', label: 'Ссылка на Telegram', type: 'text' },
+          { path: 'social.instagram', label: 'Ссылка на Instagram', type: 'text' }
+        ]},
+        { heading: 'Главный заголовок', fields: [
+          { path: 'hero.eyebrow', label: 'Надпись над заголовком', type: 'text' },
+          { path: 'hero.titleLine1', label: 'Заголовок — строка 1', type: 'text' },
+          { path: 'hero.titleLine2', label: 'Заголовок — строка 2', type: 'text' },
+          { path: 'hero.titleAccent', label: 'Заголовок — строка 3 (выделена цветом)', type: 'text' },
+          { path: 'hero.sub', label: 'Подзаголовок', type: 'textarea' }
+        ]},
+        { heading: 'Кнопка и автор', fields: [
+          { path: 'hero.ctaLabel', label: 'Текст на кнопке', type: 'text' },
+          { path: 'hero.ctaNote', label: 'Подпись рядом с кнопкой', type: 'text' },
+          { path: 'hero.authorName', label: 'Имя автора', type: 'text' },
+          { path: 'hero.authorRole', label: 'Роль автора', type: 'text' }
+        ]}
+      ]
+    },
+    {
+      id: 'statement', title: 'Цитата',
+      blocks: [
+        { fields: [
+          { path: 'statement.textBefore', label: 'Текст до выделенной части', type: 'textarea' },
+          { path: 'statement.textEm', label: 'Выделенная часть', type: 'text' },
+          { path: 'statement.textAfter', label: 'Текст после выделенной части', type: 'textarea' },
+          { path: 'statement.foot', label: 'Подпись снизу', type: 'text' }
+        ]}
+      ]
+    },
+    {
+      id: 'numbers', title: 'Цифры и статистика',
+      blocks: [
+        { fields: [
+          { path: 'numbers.eyebrow', label: 'Надпись над заголовком', type: 'text' },
+          { path: 'numbers.heading', label: 'Заголовок блока', type: 'textarea' }
+        ]},
+        statBlock(0, 1), statBlock(1, 2), statBlock(2, 3), statBlock(3, 4),
+        { fields: [
+          { path: 'numbers.foot', label: 'Подпись снизу блока', type: 'text' }
+        ]}
+      ]
+    },
+    {
+      id: 'process', title: 'Путь обучения (25 дней)',
+      blocks: [
+        { fields: [
+          { path: 'process.eyebrow', label: 'Надпись над заголовком', type: 'text' },
+          { path: 'process.leadBefore', label: 'Текст абзаца — часть 1', type: 'textarea' },
+          { path: 'process.leadBold', label: 'Текст абзаца — выделенная часть', type: 'text' },
+          { path: 'process.leadAfter', label: 'Текст абзаца — часть 2', type: 'textarea' }
+        ]},
+        { heading: 'Шаги пути', fields: [0,1,2,3,4,5,6,7,8,9].map(function(i){ return stepField(i, i + 1); }) }
+      ]
+    },
+    {
+      id: 'teacher', title: 'Преподаватель',
+      blocks: [
+        { fields: [
+          { path: 'teacher.eyebrow', label: 'Надпись над именем', type: 'text' },
+          { path: 'teacher.name', label: 'Имя', type: 'text' },
+          { path: 'teacher.role', label: 'Роль/статус', type: 'text' },
+          { path: 'teacher.text', label: 'Текст о преподавателе', type: 'textarea' }
+        ]}
+      ]
+    },
+    {
+      id: 'episodes', title: 'Программа (уроки)',
+      blocks: [
+        { fields: [
+          { path: 'episodes.eyebrow', label: 'Надпись над заголовком', type: 'text' },
+          { path: 'episodes.heading', label: 'Заголовок блока', type: 'textarea' }
+        ]}
+      ].concat([0,1,2,3,4,5,6,7,8,9].map(function(i){ return episodeBlock(i, i + 1); }))
+    },
+    {
+      id: 'format', title: 'Формат обучения',
+      blocks: [
+        { fields: [
+          { path: 'format.eyebrow', label: 'Надпись над блоком', type: 'text' }
+        ]}
+      ].concat([0,1,2,3,4,5,6,7].map(function(i){ return tileBlock(i, i + 1); }))
+    },
+    {
+      id: 'pricing', title: 'Тарифы',
+      blocks: [
+        { fields: [
+          { path: 'pricing.eyebrow', label: 'Надпись над заголовком', type: 'text' },
+          { path: 'pricing.heading', label: 'Заголовок блока', type: 'textarea' }
+        ]}
+      ].concat(pricingCardBlocks(0, 1)).concat(pricingCardBlocks(1, 2)).concat([
+        { fields: [
+          { path: 'pricing.note', label: 'Примечание под тарифами', type: 'text' }
+        ]}
+      ])
+    },
+    {
+      id: 'certificate', title: 'Сертификат',
+      blocks: [
+        { fields: [
+          { path: 'certificate.eyebrow', label: 'Надпись над блоком', type: 'text' },
+          { path: 'certificate.label', label: 'Заголовок сертификата', type: 'text' },
+          { path: 'certificate.courseIntro', label: 'Текст перед названием курса', type: 'text' },
+          { path: 'certificate.courseName', label: 'Название курса на сертификате', type: 'text' },
+          { path: 'certificate.signName', label: 'Имя в подписи', type: 'text' },
+          { path: 'certificate.signRole', label: 'Роль в подписи', type: 'text' },
+          { path: 'certificate.copy', label: 'Текст под сертификатом', type: 'textarea' }
+        ]}
+      ]
+    },
+    {
+      id: 'final', title: 'Финальный призыв',
+      blocks: [
+        { fields: [
+          { path: 'final.titleBefore', label: 'Заголовок — часть 1', type: 'textarea' },
+          { path: 'final.titleAccent', label: 'Заголовок — выделенная часть', type: 'text' },
+          { path: 'final.titleAfter', label: 'Заголовок — часть 2', type: 'text' },
+          { path: 'final.note', label: 'Подпись под заголовком', type: 'text' },
+          { path: 'final.cta', label: 'Текст на кнопке', type: 'text' }
+        ]}
+      ]
+    },
+    {
+      id: 'footer', title: 'Подвал сайта',
+      blocks: [
+        { fields: [
+          { path: 'footer.brand', label: 'Текст с названием курса', type: 'text' },
+          { path: 'footer.privacyLabel', label: 'Ссылка «Политика конфиденциальности»', type: 'text' },
+          { path: 'footer.cookieLabel', label: 'Ссылка «Cookie-файлы»', type: 'text' },
+          { path: 'footer.meta', label: 'Копирайт снизу', type: 'text' }
+        ]}
+      ]
+    }
+  ];
+
   var TOKEN_KEY = 'reelsmakerAdminToken';
   var TOKEN_EXP_KEY = 'reelsmakerAdminTokenExp';
 
@@ -243,7 +474,10 @@
   var loginPassword = document.getElementById('loginPassword');
   var loginError = document.getElementById('loginError');
   var workerHint = document.getElementById('workerHint');
-  var formRoot = document.getElementById('formRoot');
+  var navList = document.getElementById('navList');
+  var pagesRoot = document.getElementById('pagesRoot');
+  var pageTitle = document.getElementById('pageTitle');
+  var sidebar = document.getElementById('sidebar');
   var statusEl = document.getElementById('status');
 
   if(!WORKER_URL){
@@ -264,110 +498,123 @@
   }
   function setToken(token, ttlSeconds){
     localStorage.setItem(TOKEN_KEY, token);
-    localStorage.setItem(TOKEN_EXP_KEY, String(Date.now() + ttlSeconds*1000));
+    localStorage.setItem(TOKEN_EXP_KEY, String(Date.now() + ttlSeconds * 1000));
   }
   function clearToken(){
     localStorage.removeItem(TOKEN_KEY);
     localStorage.removeItem(TOKEN_EXP_KEY);
   }
 
-  /* ---------- generic form builder ---------- */
-  function humanizePath(path){ return path.split('.').join(' › '); }
-
-  function makeInput(path, val){
-    var wrap = document.createElement('label');
-    wrap.className = 'field';
-    var span = document.createElement('span');
-    span.className = 'field-label';
-    span.textContent = humanizePath(path);
-    wrap.appendChild(span);
-    var input;
-    if(typeof val === 'string' && (val.length > 60 || val.indexOf('\n') !== -1)){
-      input = document.createElement('textarea');
-      input.rows = 3;
-    } else {
-      input = document.createElement('input');
-      input.type = 'text';
-    }
-    input.value = val;
-    input.dataset.path = path;
-    input.dataset.type = typeof val;
-    wrap.appendChild(input);
-    return wrap;
+  function getPath(obj, path){
+    return path.split('.').reduce(function(o, k){ return (o == null) ? undefined : o[k]; }, obj);
   }
-
-  function renderForm(data, path, container){
-    Object.keys(data).forEach(function(key){
-      var val = data[key];
-      var fullPath = path ? path + '.' + key : key;
-      if(Array.isArray(val)){
-        var arrWrap = document.createElement('div');
-        arrWrap.className = 'field-array';
-        var h = document.createElement('div');
-        h.className = 'field-array-title';
-        h.textContent = humanizePath(fullPath) + ' (' + val.length + ')';
-        arrWrap.appendChild(h);
-        val.forEach(function(item, i){
-          var itemPath = fullPath + '.' + i;
-          if(item !== null && typeof item === 'object'){
-            var box = document.createElement('div');
-            box.className = 'field-group';
-            renderForm(item, itemPath, box);
-            arrWrap.appendChild(box);
-          } else {
-            arrWrap.appendChild(makeInput(itemPath, item));
-          }
-        });
-        container.appendChild(arrWrap);
-      } else if(val !== null && typeof val === 'object'){
-        var section = document.createElement('fieldset');
-        section.className = 'field-section';
-        var legend = document.createElement('legend');
-        legend.textContent = key;
-        section.appendChild(legend);
-        renderForm(val, fullPath, section);
-        container.appendChild(section);
-      } else {
-        container.appendChild(makeInput(fullPath, val));
-      }
-    });
-  }
-
   function setPath(obj, path, value){
     var parts = path.split('.');
     var cur = obj;
     for(var i = 0; i < parts.length - 1; i++){
       var p = parts[i];
-      if(cur[p] === undefined){
-        cur[p] = /^\d+$/.test(parts[i+1]) ? [] : {};
-      }
+      if(cur[p] === undefined) cur[p] = /^\d+$/.test(parts[i + 1]) ? [] : {};
       cur = cur[p];
     }
     cur[parts[parts.length - 1]] = value;
   }
 
+  /* ---------- build the sidebar + pages once ---------- */
+  PAGES.forEach(function(page, idx){
+    var btn = document.createElement('button');
+    btn.className = 'nav-btn' + (idx === 0 ? ' active' : '');
+    btn.type = 'button';
+    btn.dataset.page = page.id;
+    btn.innerHTML = '<span class="n">' + String(idx + 1).padStart(2, '0') + '</span><span>' + page.title + '</span>';
+    btn.addEventListener('click', function(){ showPage(page.id); sidebar.classList.remove('open'); });
+    navList.appendChild(btn);
+
+    var section = document.createElement('section');
+    section.className = 'page' + (idx === 0 ? ' active' : '');
+    section.dataset.page = page.id;
+    page.blocks.forEach(function(block){
+      var host = section;
+      if(block.heading){
+        var card = document.createElement('div');
+        card.className = 'field-card';
+        var h = document.createElement('div');
+        h.className = 'field-card-title';
+        h.textContent = block.heading;
+        card.appendChild(h);
+        var row = document.createElement('div');
+        row.className = 'field-row' + (block.fields.length > 2 ? ' cols-2' : '');
+        card.appendChild(row);
+        host = row;
+        section.appendChild(card);
+      }
+      block.fields.forEach(function(f){
+        host.appendChild(makeField(f));
+      });
+    });
+    pagesRoot.appendChild(section);
+  });
+
+  function makeField(f){
+    var wrap = document.createElement('label');
+    wrap.className = 'field';
+    var span = document.createElement('span');
+    span.className = 'field-label';
+    span.textContent = f.label;
+    wrap.appendChild(span);
+    var input;
+    if(f.type === 'textarea'){
+      input = document.createElement('textarea');
+      input.rows = 3;
+    } else {
+      input = document.createElement('input');
+      input.type = (f.type === 'number') ? 'text' : 'text';
+      input.inputMode = (f.type === 'number') ? 'numeric' : undefined;
+    }
+    input.dataset.path = f.path;
+    input.dataset.type = f.type === 'number' ? 'number' : 'string';
+    wrap.appendChild(input);
+    return wrap;
+  }
+
+  function showPage(id){
+    document.querySelectorAll('.page').forEach(function(el){ el.classList.toggle('active', el.dataset.page === id); });
+    document.querySelectorAll('.nav-btn').forEach(function(el){ el.classList.toggle('active', el.dataset.page === id); });
+    var page = PAGES.filter(function(p){ return p.id === id; })[0];
+    if(page) pageTitle.textContent = page.title;
+    window.scrollTo(0, 0);
+  }
+
+  document.getElementById('mobileNavToggle').addEventListener('click', function(){
+    sidebar.classList.toggle('open');
+  });
+
+  /* ---------- fill / collect ---------- */
+  function fillForm(data){
+    document.querySelectorAll('[data-path]').forEach(function(input){
+      var val = getPath(data, input.dataset.path);
+      input.value = (val === undefined || val === null) ? '' : val;
+    });
+  }
   function collectForm(){
     var result = {};
-    formRoot.querySelectorAll('[data-path]').forEach(function(el){
-      var v = el.value;
-      if(el.dataset.type === 'number') v = Number(v);
-      setPath(result, el.dataset.path, v);
+    document.querySelectorAll('[data-path]').forEach(function(input){
+      var v = input.value;
+      if(input.dataset.type === 'number') v = Number(v);
+      setPath(result, input.dataset.path, v);
     });
     return result;
   }
 
-  /* ---------- data loading ---------- */
+  /* ---------- data loading / saving ---------- */
   function loadContent(){
     if(!WORKER_URL){
-      renderForm(DEFAULT_CONTENT, '', formRoot);
+      fillForm(DEFAULT_CONTENT);
       return;
     }
     fetch(WORKER_URL + '/content').then(function(r){ return r.ok ? r.json() : null; }).then(function(data){
-      formRoot.innerHTML = '';
-      renderForm(data || DEFAULT_CONTENT, '', formRoot);
+      fillForm(data || DEFAULT_CONTENT);
     }).catch(function(){
-      formRoot.innerHTML = '';
-      renderForm(DEFAULT_CONTENT, '', formRoot);
+      fillForm(DEFAULT_CONTENT);
       showStatus('Не удалось связаться с воркером — показан контент по умолчанию.', false);
     });
   }
@@ -411,7 +658,6 @@
     loginError.classList.remove('show');
     var password = loginPassword.value;
     if(!WORKER_URL){
-      // demo mode: no backend configured yet, let the owner preview the panel
       setToken('demo', 3600);
       enterAdmin();
       return;
@@ -436,9 +682,9 @@
     enterLogin();
   });
   document.getElementById('reloadBtn').addEventListener('click', loadContent);
-  document.getElementById('saveBtnTop').addEventListener('click', save);
-  document.getElementById('saveBtnBottom').addEventListener('click', save);
+  document.getElementById('saveBtn').addEventListener('click', save);
 
+  showPage(PAGES[0].id);
   if(getToken()){ enterAdmin(); } else { enterLogin(); }
 })();
 </script>
