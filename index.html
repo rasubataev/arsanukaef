@@ -847,7 +847,7 @@
 
   /* hydrate default copy, then try to pull live edits from the worker */
   SiteContent.apply(window.SITE_CONTENT_DEFAULT);
-  var WORKER_URL = ''; // set once the Cloudflare Worker is deployed, e.g. 'https://reelsmaker-admin.<subdomain>.workers.dev'
+  var WORKER_URL = 'https://arsanukaef.z7gf59b4cn.workers.dev';
   if(WORKER_URL){
     fetch(WORKER_URL + '/content').then(function(r){ return r.ok ? r.json() : null; }).then(function(data){
       if(data) SiteContent.apply(data);
