@@ -141,6 +141,7 @@
       </div>
       <div class="header-actions">
         <button class="btn" id="reloadBtn" type="button">Обновить данные</button>
+        <button class="btn btn-danger" id="resetDefaultsBtn" type="button">Сбросить к последним значениям</button>
         <button class="btn btn-solid" id="saveBtn" type="button">Сохранить</button>
       </div>
     </div>
@@ -688,6 +689,12 @@
   });
   document.getElementById('reloadBtn').addEventListener('click', loadContent);
   document.getElementById('saveBtn').addEventListener('click', save);
+  document.getElementById('resetDefaultsBtn').addEventListener('click', function(){
+    var ok = window.confirm('Заполнить все поля текущими значениями по умолчанию из кода сайта? Это перезапишет всё, что вы вручную меняли в панели (пока вы не нажмёте «Сохранить», ничего не сохранится).');
+    if(!ok) return;
+    fillForm(DEFAULT_CONTENT);
+    showStatus('Поля заполнены значениями по умолчанию — проверьте и нажмите «Сохранить».', true);
+  });
 
   showPage(PAGES[0].id);
   if(getToken()){ enterAdmin(); } else { enterLogin(); }
